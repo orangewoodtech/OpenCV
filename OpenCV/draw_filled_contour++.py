@@ -51,17 +51,27 @@ if (cv2.contourArea(contours[a])>cv2.contourArea(contours[b])):
  x=x-10
  y=y-10
  timg=np.zeros_like(img)
- for y in range (y,y+h+20):
-  
+ direction=1
+
+ x_st=x
+ x_end=x+w+20
+ while (y<=y+h+20):
   print(x,x+w+20)
-  for i in range (x,x+w+20):
-   print('x:', x,'y:',y)
+  for i in range (x_st,x_end, direction):
+   print('x:', i,'y:',y)
    a = cimg[y,i]
    if(a[1] == 255):
     timg[y,i] = [0,0,255]
     cv2.imshow('Sid-Image-copy', timg)
-    cv2.waitKey(1) 
- 
+    cv2.waitKey(1)
+  temp=x_st
+  x_st=x_end
+  x_end=temp
+  if(direction==1):
+   direction=-1
+  else:
+   direction=1
+  y=y+1
  
 
  #dist = cv2.pointPolygonTest(contours[a],(34,254),True)
