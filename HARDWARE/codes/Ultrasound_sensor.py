@@ -10,7 +10,6 @@ ECHO = 24
 #Setup GPIOs
 GPIO.setup(TRIG,GPIO.OUT)
 GPIO.setup(ECHO,GPIO.IN)
-
 #Short delay
 GPIO.output(TRIG, False)
 print "Waiting For Sensor To Settle"
